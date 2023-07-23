@@ -50,7 +50,53 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  const license = data.license;
+  let licenseLink = "";
+  switch (license) {
+    case 'Apache License 2.0':
+      licenseLink = "https://opensource.org/licenses/Apache-2.0";
+      break;
+    case 'GNU General Public License v3.0':
+      licenseLink = "https://www.gnu.org/licenses/gpl-3.0";
+      break;
+    case 'MIT License':
+      licenseLink = "https://opensource.org/licenses/MIT";
+      break;
+    case 'BSD 2-Clause "Simplified" License':
+      licenseLink = "https://opensource.org/licenses/BSD-2-Clause";
+      break;
+    case 'BSD 3-Clause "New/Revised" License':
+      licenseLink = "https://opensource.org/licenses/BSD-3-Clause";
+      break;
+    case 'Boost Software License 1.0':
+      licenseLink = "https://www.boost.org/LICENSE_1_0.txt";
+      break;
+    case 'Creative Commons Zero v1.0 Universal':
+      licenseLink = "http://creativecommons.org/publicdomain/zero/1.0/";
+      break;
+    case 'Eclipse Public License 1.0':
+      licenseLink = "https://opensource.org/licenses/EPL-1.0";
+      break;
+    case 'GNU Affero General Public License v3.0':
+      licenseLink = "https://www.gnu.org/licenses/agpl-3.0";
+      break;
+    case 'GNU General Public License v2.0':
+      licenseLink = "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html";
+      break;
+    case 'GNU Lesser General Public License v3.0':
+      licenseLink = "https://www.gnu.org/licenses/lgpl-3.0";
+      break;
+    case 'Mozilla Public License 2.0':
+      licenseLink = "https://opensource.org/licenses/MPL-2.0";
+      break;
+    case 'The Unlicense':
+      licenseLink = "http://unlicense.org/";
+      break;
+    default:
+      break;
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -58,7 +104,7 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.title} [![License: ${data.license}](${licenseBadge})](${licenseLink})
 
   ## Description
 
@@ -87,6 +133,7 @@ function generateMarkdown(data) {
 
   This application uses the following license: 
   ${data.license}
+  ${licenseLink}
 
   ## Contributing
 
