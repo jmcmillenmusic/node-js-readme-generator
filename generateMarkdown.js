@@ -96,7 +96,7 @@ function renderLicenseBadgeLink(license) {
   var licenseBadgeLink = "";
   switch (license) {
     case 'Apache License 2.0':
-      licenseBadgeLink = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+      licenseBadgeLink = "[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
       return licenseBadgeLink;
     case 'GNU General Public License v3.0':
       licenseBadgeLink = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
@@ -145,7 +145,7 @@ renderLicenseBadgeLink();
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title} ${data.licenseBadgeLink}
+  return `# ${data.title} ${renderLicenseBadgeLink(data.license)}
 
   ## Description
 
@@ -153,10 +153,10 @@ function generateMarkdown(data) {
 
   ## Table of Contents
 
-  - [Installation](#Installation)
-  - [Usage](#Usage)
-  - [Credits](#Credits)
-  - [License](#License)
+  [Installation](#Installation)
+  [Usage](#Usage)
+  [Credits](#Credits)
+  [License](#License)
 
   ## Installation
 
@@ -172,9 +172,9 @@ function generateMarkdown(data) {
   
   ## License
 
-  - This application uses the following license:
-  - ${data.license}
-  - ${data.licenseLink}
+  This application uses the following license:
+  ${data.license} 
+  ${renderLicenseBadgeLink(data.license)}
 
   ## Contributing
 
@@ -186,9 +186,9 @@ function generateMarkdown(data) {
 
   ## Questions
 
-  - GitHub Username: ${data.GitHub}
-  - GitHub Profile: https://www.github.com/${data.GitHub}
-  - Email: ${data.email}
+  GitHub Username: ${data.GitHub}
+  GitHub Profile: https://www.github.com/${data.GitHub}
+  Email: ${data.email}
 `;
 }
 
