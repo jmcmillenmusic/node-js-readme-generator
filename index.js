@@ -64,7 +64,7 @@ function writeToFile(fileName, data) {
     if (error) {
       return console.log(error);
     } else {
-      console.log('Your HTML is ready!')
+      console.log('Your README is ready!')
     }
   });
 }
