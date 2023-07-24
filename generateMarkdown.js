@@ -137,7 +137,11 @@ function generateMarkdown(data) {
 
   ## Contributing
 
+  ${data.contribution}
+
   ## Tests
+
+  ${data.test}
 
   ## Questions
 `;
