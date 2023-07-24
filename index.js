@@ -1,9 +1,9 @@
-// Inquirer v.8.2.4 installed
+// Declares initial variables
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Creates an object array with a list of questions to be presented to the user
 const questions = [
   {
     type: 'input',
@@ -58,7 +58,7 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+// This writes the file with all of the data gathered from the user.
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, generateMarkdown(data), error => {
     if (error) {
@@ -69,7 +69,7 @@ function writeToFile(fileName, data) {
   });
 }
 
-// TODO: Create a function to initialize app
+// This runs the initialization function.
 function init() {
   inquirer.prompt(questions)
     .then(function(answers) {
